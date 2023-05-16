@@ -21,7 +21,7 @@ NA = world[world['continent']=='North America'].dissolve(by='continent') #choose
 NA_boundaries = unary_union(NA['geometry']) #Extract lat and lon info
 
 #--- clip 10 m coastline to NA geometry
-coastline = gpd.clip(gpd.read_file('ne_10m_coastline/ne_10m_coastline.shp')
+coastline = gpd.clip(gpd.read_file('ne_10m_coastline.shp')
                     ,NA_boundaries).to_crs('EPSG:4326')
 coastline_union = unary_union(coastline.geometry)
 # for geom in coastline_union.geoms: #--> plots for debugging
